@@ -1,0 +1,279 @@
+---------------------
+Git initializering
+---------------------
+create a new repository on the command line
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/sceric/Test.git
+git push -u origin main
+
+…or push an existing repository from the command line
+git remote add origin https://github.com/sceric/Test.git
+git branch -M main
+git push -u origin main
+
+---------------
+clone:
+---------------
+git clone https://github.com/.....
+
+---------------
+Update existing commit with new change
+---------------
+git add changelog.md
+git commit --amend
+
+---------------
+New branch:
+---------------
+git checkout -b "feature1"
+lista alla branch:
+git branch
+
+---------------
+Delete branch 1:
+---------------
+on repository:
+git push origin :feature2
+git push origin --delete remoteBranchName
+localt:
+git branch -d feature2
+
+//Use -D instead if you want to force the branch to be deleted, even if it hasn't been pushed or merged yet.
+
+------------------
+Delete branch 2
+-----------------
+delete a branch on the repository (not local branch):
+git push origin :branch_2
+
+local branch to repository (branch not have on the repository):
+git push -u origin branch_2  //obs -u use first time to trace origin brannch
+
+commit
+update last commit with new change
+git commit --amend
+
+
+------------------------------------------
+Branch(new lokal) and commit push to repo:
+------------------------------------------
+(git fetch)
+git push
+
+-------------------------
+Move files between branch
+------------------------
+git checkout branchB
+git checkout branchA -- .
+git commit -m 'copy files from branchA to branchB'
+
+-------------------------
+Move files between branch
+------------------------
+git checkout feature2
+git pull origin master
+git add .
+git commit -m "new commit 23"
+(uppdate origin repo feature2:)
+git push
+
+---------------
+Set upstream:
+---------------
+git branch -u upstream/foo
+git branch -u upstream/foo foo
+or:
+git branch --set-upstream-to=upstream/foo (lokal branch is not carrent)
+git branch --set-upstream-to=upstream/foo foo (lokal branch is not carrent)
+
+if you create a branch in your local repository, the remote repository is 
+not aware of the branch’s existence. Before you can push the branch code 
+in the remote repository, you set the remote repository as the upstream 
+branch using the git pushcommand. This command simultaneously sets the 
+upstream branch and pushes the branch contents to the remote repository.
+
+------------------------------------
+Create branch cccc from branch ppppp
+-----------------------------------
+git checkout -b ccccc ppppp
+
+---------------
+Marge branch
+--------------
+marge branch into main:
+git checkout main (your are on the mani branch
+git merge feature2 (mearge feature2 branch into main)
+git push (push to origin/repo)
+
+marge main into branch:
+git checkout feature2 (your are on the feature2 branch
+git merge main (mearge main branch into feature2)
+git push (push to origin/repo)
+
+----------------------------------------
+Marge branch (feature branch into master)
+----------------------------------------
+git checkout master
+git merge feature2
+(git status, cat "filename"), fixa som behövs fixas
+git merge feature2
+git add .
+git commit -m "message"
+git push
+
+Allmänt:
+branch 1: Commit 1, Commit 2, Commit 3
+branch master:
+git merge branch 1 
+Commit 3
+
+
+
+------------------------------------------
+Marge branch (new-feature branch into main)
+------------------------------------------
+# Start a new feature
+git checkout -b feature1 
+# Edit some files
+git add <file>
+git commit -m "Start a feature1"
+git push // update remote feature (behövs inte men om man vill pusha commit till remote)
+# Edit some files
+git add <file>
+git commit -m "Finish a feature1"
+git push// update remote feature (behövs inte men om man vill pusha commit till remote)
+
+# Merge in the feature1 branch into main
+git checkout main
+git merge feature1
+git push //push marge to remote (git push --force //om man ska skriva över origin, dvs copy so local och remote bli samma)
+git branch -d feature1 //delete branch feature1
+
+ångra merge
+
+git log
+git reset --hard xxxxxxxxxxxxxxxxxxxxxxx 
+git push --force (remote and local är inte sinkat ---> pusha local till origin (origin blir samma som local))
+
+
+---------------
+Rebase
+----------------
+Rebase feature on main bransh
+git checkout feature
+git rebase main
+
+--------------
+Other
+---------------
+git remote -v
+list over origin upstream branch
+
+git branch -l
+list over locala branch
+
+git ls-remote 
+should show you all the remotes available for fetching from the upstream serve
+
+git ls-files
+should show you all the remotes files
+
+
+git branch -a: See both local and remote branches
+git branch -r: See only remote branches
+git remote show: See remote branches and associated metadata
+git remote show origin
+git status
+git reflog
+
+-----------
+Reset
+-----------
+reset origin and lokal
+git logwqw
+git reset --hard  bbc7bc0926617f43ec98eecdc5888bf4b0f517de
+git reset --hard HEAD^ //reset to next last commit
+//git reset --hard feature1 //behves inte
+git push --force
+
+reset origin and lokal keep a last update
+git log
+git reset --soft  bbc7bc0926617f43ec98eecdc5888bf4b0f517de
+git reset --soft HEAD^ //reset to next last commit
+//git reset --hard feature1 //behves inte
+git push --force
+
+--------------------------------------------
+Someone pushed new commits between your last
+-------------------------------------------
+git push
+(non-fast-forward)
+git pull origin master
+git push
+
+
+-----------
+Submodule
+-----------
+git submodule add <url var finns submodule (.git))
+git submodule update
+
+------------------------------------------
+Change on the github /new commit on github
+-------------------------------------------
+(change file on github, new commit message)
+git fetch
+git pull origin master
+
+
+------------------------------------------------------------------------------------
+If you need all branches to automatically use this remote repository when you use
+---------------------------------------------------------------------------------
+git push --all --set-upstream origin
+
+
+
+---------------
+Unix commando
+---------------
+Commando line
+---make change:
+tryck på "Esc"
+write: "wq" to save change
+After writing commit message, just press Esc Button and then write :wq or :wq! and then Enter to close the unix file.
+
+--------------
+Jenkins
+--------------
+Git Jenkins token:
+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
+
+sceric.ddns.net
+Kurs-SoftwareTes
+
+---------------------------
+Reset origin (reset commit) 
+--------------------------
+git log --oneline --all
+
+73cd922 (HEAD -> master, origin/master) Add a project
+e587cd8 Add a project
+d943b5b First commit
+
+git reset --soft HEAD~2
+
+git push --force
+
+d943b5b (HEAD -> master, origin/master) First commit
+
+
+---------------------------
+
+--------------------------
+
+
+
+
