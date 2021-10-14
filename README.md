@@ -3,6 +3,7 @@
 # Test 
 Sefik changed the file 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Test and Test 211014xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 yyyyyyyyyyyyyyy
 =======
@@ -15,3 +16,6 @@ Sefik changed the file
 =======
 Test and Test 211014
 >>>>>>> 9063633 (fixup! Create README.md)
+=======
+Test and Test 211014xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+>>>>>>> f54764e (squash! Merge branch 'master' of https://github.com/sceric/Test into feature2)
