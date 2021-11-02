@@ -55,6 +55,7 @@ git push -u origin branch_2  //obs -u use first time to trace origin brannch
 commit
 update last commit with new change
 git commit --amend
+git commit --amend -m "New commit message." //change commit massage
 
 
 ------------------------------------------
@@ -273,6 +274,14 @@ d943b5b (HEAD -> master, origin/master) First commit
 ---------------------------
 
 --------------------------
+
+git add <my fixed files>
+git commit --fixup=OLDCOMMIT
+git rebase --interactive --autosquash OLDCOMMIT^
+
+git add <my fixed files>
+git commit --squash=OLDCOMMIT
+git rebase --interactive --autosquash OLDCOMMIT^
 
 
 
